@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <title>AngularJSDirectiveDrag&Drop</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="mydirectivedragdrop.js"></script>
+    <style type="text/css">
+.file-drop-zone {
+        /*border: 2px ;
+        padding: 30px;
+        text-align: center;
+        width: 250px;*/
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 120px;
+        height: 120px;
+    }
+    
+    .file-drop-zone-over {
+        border: 2px dashed #aaa;
+        padding: 30px;
+        text-align: center;
+        width: 120px;
+        position: absolute;
+        box-sizing: border-box;
+        height: 120px;
+    }
+    
+    .image-container {
+        width: 100%;
+        height: 100%;
+    }
+}
+    </style>
+</head>
+
+<body ng-app="module" ng-controller="dirController" style="margin-top:100px;margin-left:100px">
+    <div style="position:relative">
+        <div style="height: 80px;width: 313px;position: absolute;">
+            <file-drop-zone class="file-drop-zone-over" file-display="files" has-files="hasfiles">
+
+
+
+               
+            </file-drop-zone>
+        </div>
+        <div ng-repeat="file in files" class="file-drop-zone">
+            <div class="image.container">
+                <img ng-src={{file.preview}} class="image-container">
+            </div>
+            <div>
+                Name:{{file.name}}
+            </div>
+            <div>
+                size:{{file.size /1024 | number:2}} KB
+            </div>
+        </div>
+    </div>
+
+    <div style="padding-top: 133px;">
+    {{fileName}}
+    </div>
+</body>
+
+</html>
+
+
+
+
+<!-- MY CHUTIYAPA -->
+<!--   <input type="button" value="Drag over here" ng-click="doucment.getElementById('fileInput').click();" /> -->
+<!--   <span>Drag over here</span>  -->
+<!--    <input type="file" id="fileInput" style="display:none;"> -->
+<!-- <div file-display="files" -->
+<!-- <input type="file" /> -->
+<!--  <input id="fileInput" type="file" style="display:none;" />
+                <input type="button" id="btnattachment" value="DROP FILES HERE!" onchange="angular.element(this).scope.selectedfile(this)" onclick="document.getElementById('fileInput').click();" ng-files="fileselected($files)" style="margin: 0px auto;position: absolute; left: 0px; top: 50%; width: 80%;transform: translateY(-50%);" /> -->
+<!--    <input id="fileInput" type="file" style="display:none;" onchange="fileSelected()" />
+                <input type="button"  id="btnattachment" value="DROP FILES HERE!" onclick="document.getElementById('fileInput').click();" style="margin: 0px auto;position: absolute; left: 0px; top: 50%; width: 100%;transform: translateY(-50%);" />
+ -->
+<!-- <input type="file" class="file" id="attachement" name="attachement" style="display: none;" onchange="fileSelected(this)" />
+                <input type="button" class="file" id="btnAttachment" onclick="openAttachment()" value="File" style="margin:0px auto;position: absolute; left:0px; top:50%;
+    width:100%;
+    transform: translateY(-50%);" /> -->
+<!-- <input id="fileInput" type="file" style="display:none;" />
+<input type="button" value="Choose Files!" onclick="document.getElementById('fileInput').click();" />
+ -->
+
+
+   <!--     <input id="fileInput" type="file" style="display:none;" onchange="angular.element(this).scope().fileSelected(this)" />
+                <input type="button" id="btnattachment" value="DROP FILES HERE!" ng-model="fileName" onclick="document.getElementById('fileInput').click();" style="margin: 0px auto;position: absolute; left: 0px; top: 50%; width: 80%;transform: translateY(-50%);" /> -->
